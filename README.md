@@ -25,13 +25,17 @@ The is a proof-of-concept built based on the requirements provided by [Cancer Ca
 - The backend app should now be running on [http://localhost:3000](http://localhost:3000)
 
 ## Testing
+#### Frontend
 
-### Frontend
+- Run `npm install pm2 -g` for running cypress tests.
+- Then `cd frontend`
+- Start the react appwith `pm2 start node_modules/react-scripts/scripts/start.js --name "myapp"`
+- Run cypress tests with `yarn cy:run`
 
-- Only Once : `npm install pm2 -g` , this is for running cypress tests.
-
-`cd frontend`
-
-start the react appwith `pm2 start node_modules/react-scripts/scripts/start.js --name "myapp"`
-
-then run cypress tests with `yarn cy:run`
+## Contributors 
+- NikitaVr
+- gilltan97
+- sh0aibsha1kh
+- lanaelsanyoura
+- MusaTalluzi
+- amrrsharaff

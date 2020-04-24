@@ -21,8 +21,8 @@ The is a proof-of-concept built based on the requirements provided by [Cancer Ca
 ```
 
 ## Usage
-- The frontend app should now be running on [http://localhost:5000](http://localhost:5000)
-- The backend app should now be running on [http://localhost:3000](http://localhost:3000)
+- The frontend app should now be running on [`http://localhost:5000`](http://localhost:5000)
+- The backend app should now be running on [`http://localhost:3000`](http://localhost:3000)
 
 ## Testing
 #### Frontend

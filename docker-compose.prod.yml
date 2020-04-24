@@ -1,0 +1,29 @@
+version: '3'
+services: 
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    command: node server.js
+    environment:
+      - NODE_ENV=production
+    ports: 
+      - 3000:3000
+
+  backend:
+    container_name: backend
+    build: ./backend
+    command: yarn nodemon 
+    environment:
+      - NODE_ENV=production
+    ports: 
+      - 5000:5000
+    depends_on:
+      - mongo 
+
+  mongo: 
+    container_name: mongo 
+    image: mongo
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 27017:27017

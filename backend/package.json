@@ -1,0 +1,35 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "nodemon": "nodemon ./bin/www",
+    "lint": "./node_modules/eslint/bin/eslint.js --ext .js,.ts,.tsx .",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "mocha --exit --timeout 10000 test/*",
+    "coverage": "nyc --reporter=html --reporter=text -- npm test"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "mocha": "^6.2.1",
+    "mongodb": "^3.3.2",
+    "mongoose": "^5.7.5",
+    "morgan": "~1.9.1",
+    "nodemon": "^1.19.4",
+    "xml2js": "^0.4.22"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "nyc": "^14.1.1",
+    "supertest": "^4.0.2"
+  }
+}

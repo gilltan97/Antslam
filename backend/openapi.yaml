@@ -1,0 +1,415 @@
+openapi: 3.0.0
+
+servers:
+  - url: "http://localhost:3000/api"
+
+info:
+  title: ANTSLAM API
+  version: 0.0.1
+
+paths:
+  /patients:
+    get:
+      summary: Search for patients by query, defaults to returning all patients
+      tags:
+        - patients
+      parameters:
+        - name: query
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        200:
+          description: Returns a list of matching patients
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/patient"
+        404:
+          $ref: "#/components/responses/NotFound"
+    post:
+      summary: Create a Patient
+      tags:
+        - patients
+      requestBody:
+        description: ID is not sent as it is database generated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/patient"
+      responses:
+        200:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/patient"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+  /patients/{id}:
+    get:
+      summary: Get a Patient by id
+      tags:
+        - patients
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        200:
+          description: Returns the details of a patient
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/patient"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+    put:
+      summary: Update specific Patient
+      tags:
+        - patients
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/patient"
+      responses:
+        200:
+          description: Successfully modified Patient
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/patient"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+    delete:
+      summary: Delete a Patient
+      tags:
+        - patients
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        204:
+          description: Patient Deleted
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+  /clinicians:
+    get:
+      summary: Search for clinicians by query, defaults to returning all clinicians
+      tags:
+        - clinicians
+      parameters:
+        - name: query
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        200:
+          description: Returns a list of matching clinicians
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/clinician"
+        404:
+          $ref: "#/components/responses/NotFound"
+    post:
+      summary: Create a Clinician
+      tags:
+        - clinicians
+      requestBody:
+        description: ID is not sent as it is database generated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/clinician"
+      responses:
+        200:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/clinician"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+  /clinicians/{id}:
+    get:
+      summary: Get a Clinician by id
+      tags:
+        - clinicians
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        200:
+          description: Returns the details of a clinician
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/clinician"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+    put:
+      summary: Update specific Clinician
+      tags:
+        - clinicians
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/clinician"
+      responses:
+        200:
+          description: Successfully modified Clinician
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/clinician"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+    delete:
+      summary: Delete a Clinician
+      tags:
+        - clinicians
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        204:
+          description: Clinician Deleted
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+  /forms/{formType}:
+    get:
+      summary: Get a Form
+      tags:
+        - forms
+      parameters:
+        - name: formType
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        200:
+          description: Form Retrieved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/form"
+        404:
+          $ref: "#/components/responses/NotFound"
+  /formResponses:
+    get:
+      summary: Search for Form Responses by query, defaults to returning all form responses
+      tags:
+        - formResponses
+      parameters:
+        - name: query
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        200:
+          description: Returns a list of matching form responses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/formResponse"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+    post:
+      summary: Create a FormResponse
+      tags:
+        - formResponses
+      requestBody:
+        description: ID is not sent as it is database generated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/formResponse"
+      responses:
+        200:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/formResponse"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+  /formResponses/{id}:
+    get:
+      summary: Get a Form Response
+      tags:
+        - formResponses
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        200:
+          description: Form Response Retrieved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/formResponse"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+    put:
+      summary: Update specific Form Response
+      tags:
+        - formResponses
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/formResponse"
+      responses:
+        200:
+          description: Successfully modified Form Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/formResponse"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+    delete:
+      summary: Delete a Form Response
+      tags:
+        - formResponses
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        204:
+          description: Deleted
+        404:
+          $ref: "#/components/responses/NotFound"
+components:
+  responses:
+    NotFound:
+      description: Failed to find the resource
+    BadRequest:
+      description: Client has sent bad request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+  schemas:
+    patient:
+      type: object
+      required:
+        - name
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+    clinician:
+      type: object
+      required:
+        - name
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+    form:
+      type: object
+      properties:
+        formType:
+          type: string
+    formResponse:
+      type: object
+      required:
+        - date
+        - clinician
+        - patient
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+        clinician:
+          type: string
+        patient:
+          type: string
+        form:
+          type: object
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string

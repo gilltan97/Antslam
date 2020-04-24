@@ -1,7 +1,7 @@
 # Antslam
 The reposetory code is a copy of the project code for CSC302 which can be found [here](https://github.com/csc302-fall-2019/proj-ANTSLAM).
 
-The is a proof-of-concept built based on the requirements provided by [Cancer Care Ontario](https://www.cancercareontario.ca/en). This application lets the radiologists create digital medical records for the patients which are stored in the databse as JSON objects. 
+The is a proof-of-concept built based on the requirements provided by [Cancer Care Ontario](https://www.cancercareontario.ca/en). This application lets the radiologists create digital medical records for the patients which are stored in the database as JSON objects. 
 
 
 

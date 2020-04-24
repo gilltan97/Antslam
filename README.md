@@ -1,56 +1,28 @@
-# proj-ANTSLAM
+# Antslam
+The reposetory code is a copy of the project code for CSC302 which can be found [here](https://github.com/csc302-fall-2019/proj-ANTSLAM).
+
+The is a proof-of-concept built based on the requirements provided by [Cancer Care Ontario](https://www.cancercareontario.ca/en). This application lets the radiologists create digital medical records and stores those medical records as a JSON object. 
 
 
-## Getting started
 
-### Option 1: Docker (recommended)
-
-#### Dependencies 
+## Dependencies 
 - docker
 - yarn
 
-Run the following commands to start the frontend and backend server
-
+## Installation
+1. Clone the the project locally 
 ```bash
-# clone the the project locally 
 > git clone https://github.com/csc302-fall-2019/proj-ANTSLAM.git
 > cd proj-ANTSLAM
-
-# Run both the backend and fronend server
+```
+2. Run both the backend and fronend server
+```bash 
 > ./ANTSLAM start 
-
 ```
 
-### Option 2: Manual
-Run the following commands to start the frontend and backend server
-
-#### Dependencies 
-- yarn
-- mongodb
-
-```bash
-# clone the the project locally 
-> git clone https://github.com/csc302-fall-2019/proj-ANTSLAM.git
-> cd proj-ANTSLAM
-
-# Open a new terminal window and start monogdb
-> mongod 
-
-# Start the backend application 
-> cd /backend 
-> yarn install
-> yarn run start
-
-# Start the frontend application 
-> cd ../frontend
-> yarn install
-> yarn run start
-
-```
-
-The frontend app should now be running on [http://localhost:5000](http://localhost:5000)
-
-The backend app should now be running on [http://localhost:3000](http://localhost:3000)
+## Usage
+- The frontend app should now be running on [http://localhost:5000](http://localhost:5000)
+- The backend app should now be running on [http://localhost:3000](http://localhost:3000)
 
 ## Testing
 
